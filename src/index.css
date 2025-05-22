@@ -1,0 +1,110 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 217.2 91.2% 59.8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .algorithm-card {
+    @apply relative overflow-hidden bg-secondary rounded-lg border border-border p-6 transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20;
+  }
+  
+  .algorithm-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r opacity-80;
+  }
+  
+  .algorithm-card.divide::before {
+    @apply from-algo-divide to-algo-divide/50;
+  }
+  
+  .algorithm-card.greedy::before {
+    @apply from-algo-greedy to-algo-greedy/50;
+  }
+  
+  .algorithm-card.dp::before {
+    @apply from-algo-dp to-algo-dp/50;
+  }
+  
+  .algorithm-card.branch::before {
+    @apply from-algo-branch to-algo-branch/50;
+  }
+  
+  .array-bar {
+    @apply inline-block w-full bg-secondary mx-0.5 transition-all duration-300;
+  }
+  
+  .array-bar.active {
+    @apply bg-algo-active;
+  }
+  
+  .array-bar.comparing {
+    @apply bg-algo-comparing;
+  }
+  
+  .array-bar.pivot {
+    @apply bg-algo-pivot;
+  }
+  
+  .array-bar.sorted {
+    @apply bg-algo-sorted;
+  }
+
+  .control-btn {
+    @apply p-2 bg-secondary rounded-md text-foreground hover:bg-primary/20 transition-colors;
+  }
+}
