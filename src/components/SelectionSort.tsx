@@ -179,7 +179,7 @@ const SelectionSort = () => {
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-2">
-        <h2 className="text-2xl font-bold">Selection Sort</h2>
+        <h2 className="text-2xl font-bold text-gray-800">Selection Sort</h2>
         <p className="text-gray-600 dark:text-gray-300">
           Selection Sort works by repeatedly finding the minimum element from the unsorted part and putting it at the beginning of the array.
         </p>
@@ -237,7 +237,7 @@ const SelectionSort = () => {
         
         <div className="flex-1">
           {/* Visualization */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border h-72 flex items-end justify-center gap-1">
+           <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-sm border h-96 flex items-end justify-center gap-2 relative">
             {animations.array.map((value, idx) => {
               const heightPercentage = (value / Math.max(...animations.array)) * 100;
               const isComparing = animations.comparing.includes(idx);
@@ -252,12 +252,14 @@ const SelectionSort = () => {
               return (
                 <div
                   key={idx}
-                  className={`array-bar ${colorClass} relative`}
+                  className={`array-bar ${colorClass} relative border border-gray-300`}
                   style={{ 
                     height: `${heightPercentage}%`,
+                    width: `${Math.max(24, 100 / Math.max(20, animations.array.length))}px`,
+                    minWidth: "24px"
                   }}
                 >
-                  <div className="text-center absolute bottom-0 left-0 right-0 -mb-6 text-sm font-medium text-gray-800 dark:text-gray-300">
+                   <div className="text-center absolute bottom-0 left-0 right-0 -mb-8 text-sm font-medium text-gray-800">
                     {value}
                   </div>
                 </div>
@@ -266,7 +268,7 @@ const SelectionSort = () => {
           </div>
 
           {/* Algorithm complexity */}
-          <div className="mt-10 border rounded-lg p-4 bg-gray-50 dark:bg-gray-800">
+          <div className="mt-12 border rounded-lg p-4 bg-gray-50 dark:bg-gray-800">
             <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">Algorithm Complexity</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
