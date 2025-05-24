@@ -283,8 +283,8 @@ const HeapSort = () => {
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-2">
-        <h2 className="text-2xl font-bold">Heap Sort</h2>
-        <p className="text-gray-600 dark:text-gray-400">
+      <h2 className="text-2xl font-bold text-gray-800">Heap Sort</h2>
+        <p className="text-gray-700 dark:text-gray-300">
           Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It builds a max heap and then extracts elements to get a sorted array.
         </p>
       </div>
@@ -368,7 +368,7 @@ const HeapSort = () => {
         
         <div className="flex-1">
           {/* Visualization */}
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border h-60 flex items-end justify-center gap-1">
+         <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-sm border h-96 flex items-end justify-center gap-2 relative">
             {animations.array.map((value, idx) => {
               const heightPercentage = (value / Math.max(...animations.array)) * 100;
               const isComparing = animations.comparing.includes(idx);
@@ -383,12 +383,14 @@ const HeapSort = () => {
               return (
                 <div
                   key={idx}
-                  className={`array-bar ${colorClass} relative`}
+                  className={`array-bar ${colorClass} relative border border-gray-300`}
                   style={{ 
                     height: `${heightPercentage}%`,
+                    width: `${Math.max(24, 100 / Math.max(20, animations.array.length))}px`,
+                    minWidth: "24px"
                   }}
                 >
-                  <div className="text-center absolute bottom-0 left-0 right-0 -mb-5 text-xs text-gray-800 dark:text-gray-300">
+                  <div className="text-center absolute bottom-0 left-0 right-0 -mb-8 text-sm font-medium text-gray-800">
                     {value}
                   </div>
                 </div>
@@ -397,7 +399,7 @@ const HeapSort = () => {
           </div>
 
           {/* Heap visualization */}
-          <div className="mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm border overflow-hidden">
+         <div className="mt-12 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm border overflow-hidden">
             <h3 className="text-lg font-medium mb-3 text-gray-800 dark:text-gray-200">Heap Visualization</h3>
             <div className="relative h-80 overflow-auto">
               <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" className="overflow-visible">
