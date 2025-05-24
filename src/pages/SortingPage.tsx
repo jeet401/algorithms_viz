@@ -10,7 +10,7 @@ import SelectionSort from "@/components/SelectionSort";
 const SortingPage = () => {
   return (
     <div className="container py-8">
-      <h1 className="text-3xl font-bold mb-6">Sorting Algorithms</h1>
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">Sorting Algorithms</h1>
       
       <Tabs defaultValue="heap-sort" className="w-full">
         <TabsList className="mb-4 flex flex-wrap">
